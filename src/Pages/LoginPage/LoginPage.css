@@ -1,0 +1,14 @@
+.loginPageForm {
+    margin: auto;
+    width: 60%;
+}
+
+.loginPageForm h1{
+    text-align: center;
+    font-size: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+.loginPageButtons {
+    display: flex;
+    justify-content: space-evenly;
+}

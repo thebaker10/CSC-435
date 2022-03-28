@@ -1,0 +1,6 @@
+.splitView{
+    display: grid;
+    grid-template-columns: 55vw 45vw;
+    
+}
+
