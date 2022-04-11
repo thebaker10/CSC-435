@@ -1,0 +1,28 @@
+.uiinvertedpointingsecondarymenu{
+text-align: center;
+}
+
+.card {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+}
+
+.Button{
+    text-align: center;
+}
+
+.message{
+    position: absolute !important;
+    z-index: 1;
+    left: 80vw;
+    opacity: 0;
+    transition: all 2s ease;
+}
+.showMessage {
+    opacity: 1 !important;
+}
