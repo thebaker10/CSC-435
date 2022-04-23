@@ -1,0 +1,16 @@
+.cartItems {
+    display: flex;
+    
+}
+
+.navBar{
+    display: flex !important;
+    justify-content: space-between;
+    width: 160vw;
+    padding: 0 10rem !important;
+}
+
+.links{
+    display: flex;
+
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import ItemCard from '../../Components/Card/ItemCard';
 import NavigastionBar from '../../Components/NavigastionBar/NavBar'
 import "./HomePage.css"
-import data from "./../../storeData.json"
 import {Message} from "semantic-ui-react"
 
 export default class HomePage extends React.Component {
@@ -10,8 +9,24 @@ export default class HomePage extends React.Component {
         super (props)
         this.state = {
             notificationMessage: "",
-            notificationColor: "green"
+            notificationColor: "green",
+            books: []
         }
+    }
+
+    async componentDidMount() {
+        const books = await fetch("http://localhost:8000/books").then(text => text.json())
+        this.setState({books})
+    }
+
+    componentWillUnmount() {
+        this.setState({
+            books: []
+        })
+    }
+
+    componentDidUpdate() {
+        console.debug(this.state)
     }
 
     hideNotification(){
@@ -51,7 +66,7 @@ export default class HomePage extends React.Component {
                 
 
                 <div className='container'>
-                    {data.map(item => <ItemCard onAddToCart={this.onAddToCartHandler.bind(this)} onAddToWishList={this.onAddToWishListHandler.bind(this)} item={item} />)}
+                    {this.state.books.map(item => <ItemCard onAddToCart={this.onAddToCartHandler.bind(this)} onAddToWishList={this.onAddToWishListHandler.bind(this)} item={item} />)}
 
                 </div>
                 

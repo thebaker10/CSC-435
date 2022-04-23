@@ -1,30 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Segment, Icon } from 'semantic-ui-react'
+import { Menu, Segment, Icon, Label } from 'semantic-ui-react'
 import { useSelector } from 'react-redux';
+import "./NavBar.css"
 
-export default function NavBar(){
+export default function NavBar() {
 
-    const wishList = useSelector(state=>state.wishList.items)
-    const cartList = useSelector(state=>state.cartList.items)
+    const wishList = useSelector(state => state.wishList.items)
+    const cartList = useSelector(state => state.cartList.items)
 
 
-        return (
-            <Segment inverted>
-                <Menu inverted pointing secondary>
-                    <Link to={"/"}><Menu.Item name='Home'size='large' /></Link>
+    return (
+        <Segment inverted>
+            <Menu inverted pointing secondary className='navBar'>
+                <div className='links'>
+                    <Link to={"/"}><Menu.Item name='Home' size='large' /></Link>
 
-                    <Link to={""}><Menu.Item name='Orders'size='large' /></Link>
+                    <Link to={""}><Menu.Item name='Orders' size='large' /></Link>
 
-                    <Link to={"/login"}><Menu.Item name='Login'size='large' /></Link>
+                    <Link to={"/login"}><Menu.Item name='Login' size='large' /></Link>
+                </div>
 
-                    <Link to={"/wishlist"}><Menu.Item name='Whish List'>{wishList.length}<Icon name='heart' size='large' /></Menu.Item></Link>
+                <div className='cartItems'>
+                    <div className='wishList'>
+                        <Link to={"/wishlist"}>
+                            <Menu.Item as='a'>
+                                <Icon name='heart' size='large' /> Wish  List
+                                <Label color='red' floating>{wishList.length}</Label>
+                            </Menu.Item>
+                        </Link>
+                    </div>
 
-                    <Link to={"/cart"}><Menu.Item name='cart'>{cartList.length}<Icon name='shopping cart' size='large' /></Menu.Item></Link>
-                    
-                    
-                </Menu>
-            </Segment>
+                    <div className='cart'>
+                        <Link to={"/cart"}>
+                            <Menu.Item as='a'>
+                                <Icon name='cart' size='large' /> Cart
+                                <Label color='green' floating>{cartList.length}</Label>
+                            </Menu.Item>
+                        </Link>
+                    </div>
+                </div>
 
-        );
+            </Menu>
+        </Segment>
+
+    );
 }
