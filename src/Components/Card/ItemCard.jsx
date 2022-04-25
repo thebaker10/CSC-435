@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Image, Button, Icon, Message } from "semantic-ui-react"
 import { addCartItem } from '../../Services/State/CartSlice';
 import { addWishItem } from '../../Services/State/WishSlice';
+import notificationSound from "./../../tin.mp3"
 
 export default function ItemCard(props) {
 
     const [showWarning, setShowWarning] = useState(false)
+
+    const audioRef = useRef(null)
 
     // const items = useSelector(state => state.items.items)
 
@@ -14,6 +17,7 @@ export default function ItemCard(props) {
     const addToCartHandler = ()=>{
         dispatch(addCartItem(props.item))
         props.onAddToCart(props.item)
+        audioRef.current.play()
     }
     const addWishHandler = ()=>{
         dispatch(addWishItem(props.item))
@@ -45,6 +49,8 @@ export default function ItemCard(props) {
                     <span>Wish list</span>
                 </Button>
 
+
+
             </Card.Content>
 
             {showWarning ?
@@ -53,6 +59,8 @@ export default function ItemCard(props) {
                     <p>Visit our registration page, then try again.</p>
                 </Message>
                 : null}
+
+            <audio src={notificationSound} ref={audioRef}></audio>
         </Card>
 
     );
