@@ -54,16 +54,5 @@ describe("renders the home page", () => {
         cy.contains("The One Tree")
         cy.contains("Gravity")
     })
-
-    it("", () => {
-
-    })
 })
 
-
-
-
-
-it("", () => {
-
-})
