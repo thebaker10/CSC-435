@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Card, Image, Button, Icon, Message } from "semantic-ui-react"
 import { addCartItem } from '../../Services/State/CartSlice';
 import { addWishItem } from '../../Services/State/WishSlice';
-import notificationSound from "./../../tin.mp3"
 
 export default function ItemCard(props) {
 
@@ -60,7 +59,7 @@ export default function ItemCard(props) {
                 </Message>
                 : null}
 
-            <audio src={notificationSound} ref={audioRef}></audio>
+            <audio src="./tin.mp3" ref={audioRef}></audio>
         </Card>
 
     );

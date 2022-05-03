@@ -11,18 +11,18 @@ export default class LoginPage extends React.Component {
         return (
             <SplitPage>
                 <div>
-                    <Image src="https://source.unsplash.com/random/4000x4000/?book" alt="" />
+                    <Image src="https://source.unsplash.com/random/4000x4000/?book" alt="" className="image"/>
                 </div>
                 <div className='loginPageForm'>
                     <Form>
                         <h1>CSP STORE</h1>
                         <Form.Field>
                             <label>Username</label>
-                            <input placeholder='Username' />
+                            <input placeholder='Username' className='username'/>
                         </Form.Field>
                         <Form.Field>
                             <label>Password</label>
-                            <input type="password" placeholder='Password' />
+                            <input type="password" placeholder='Password' className='password'/>
                         </Form.Field>
                         <div className='loginPageButtons'>
                             <Button type='submit' primary>Login</Button>
